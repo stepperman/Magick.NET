@@ -13,7 +13,9 @@
 //=================================================================================================
 
 #include "Stdafx.h"
+typedef enum {false, true} bool;
 
+/*
 #pragma warning(push)
 #pragma warning(disable : 4255)
 #pragma warning(disable : 4668)
@@ -38,4 +40,16 @@ BOOL WINAPI DllMain(HINSTANCE hinstDLL, DWORD fdwReason, LPVOID lpReserved)
     break;
   }
   return TRUE;  // Successful DLL_PROCESS_ATTACH.
+}
+
+			This function has been removed because Linux doesn't have an entry point
+								when the library is called.
+*/
+
+MAGICK_NET_EXPORT bool Initialize()
+{
+	MagickCoreGenesis((const char *)NULL, MagickFalse);
+	SetMagickResourceLimit(HeightResource, 10000000);
+	SetMagickResourceLimit(WidthResource, 10000000);
+	return true;
 }

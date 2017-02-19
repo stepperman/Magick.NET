@@ -11,6 +11,7 @@ if exist %BASH% goto EXECUTE
 
 echo Failed to find bash.exe
 echo %BASH%
+pause
 exit /b 1
 
 :EXECUTE

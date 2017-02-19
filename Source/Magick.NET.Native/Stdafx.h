@@ -41,7 +41,11 @@
  __pragma(comment(lib,MAGICK_NET_STRINGIFY(CORE_RL_##name##_.lib)))
 #endif
 
+#if defined(_WIN32) || defined(_WIN64)
 #define MAGICK_NET_EXPORT __declspec(dllexport)
+#else
+#define MAGICK_NET_EXPORT 
+#endif
 
 #if defined(MAGICKCORE_BZLIB_DELEGATE)
 MAGICK_NET_LINK_LIB("bzlib")
